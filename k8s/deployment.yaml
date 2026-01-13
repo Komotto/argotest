@@ -1,22 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: hello-world
+  name: minha-app
 spec:
-replicas: 1
-selector:
-matchLabels:
-app: hello
-template:
-metadata:
-labels:
-app: hello
-spec:
-containers:
-- name: hello
-image: hashicorp/http-echo
-args:
-- "-text=Olá mundo via Argo CD"
-ports:
-- containerPort: 5678
-
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minha-app
+  template:
+    metadata:
+      labels:
+        app: minha-app
+    spec:
+      containers:
+        - name: minha-app
+          image: nginx
